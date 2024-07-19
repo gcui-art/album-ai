@@ -12,6 +12,7 @@ import { HttpsProxyAgent } from 'https-proxy-agent';
 import { ExtractImageService } from './remote/extract-image.service';
 import { PgVectorStoreService } from './remote/pg-vector-store.service';
 import { PageController } from './page/page.controller';
+import { ChatService } from './file/chat.service';
 
 @Module({
   controllers: [PageController],
@@ -26,6 +27,7 @@ import { PageController } from './page/page.controller';
     EmbeddingService,
     ExtractImageService,
     PgVectorStoreService,
+    ChatService,
   ],
 })
 export class AppModule {}

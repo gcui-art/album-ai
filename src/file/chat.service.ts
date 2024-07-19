@@ -4,8 +4,7 @@ import { openai } from '../app.module';
 
 @Injectable()
 export class ChatService {
-  constructor(private readonly fileService: FileService) {
-  }
+  constructor(private readonly fileService: FileService) {}
 
   public async chat(input: { text: string }) {
     const { results, urls } = await this.fileService.searchDetail(input.text);
@@ -24,7 +23,7 @@ export class ChatService {
 The user request is:  <request>${input.text}</request>,
 and the associated images are: <images>${JSON.stringify({ results, urls })}</images>.
 'fId' is the unique identification of the image.
-You need to return a friendly response in Markdown format and showcase the related images(use markdown image tag).`
+You need to return a friendly response in Markdown format and showcase the related images(use markdown image tag).`,
         },
       ],
     });

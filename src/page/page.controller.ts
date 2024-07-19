@@ -1,22 +1,26 @@
-import { Get, Controller, Render, Query } from '@nestjs/common';
+import { Get, Controller, Render, Query, Logger } from '@nestjs/common';
+import { ChatService } from '../file/chat.service';
 
 @Controller('/')
 export class PageController {
+  private readonly logger = new Logger(PageController.name);
+
+  constructor(private readonly chatService: ChatService) {}
+
   @Get('/')
   @Render('index')
-  root(@Query('query') query?: string) {
-    console.log("query:", query);
+  async root(@Query('query') query?: string) {
+    this.logger.log('query:', query);
     if (query) {
-      //todo
-      const answer = `The images depict various cats, including a gray cat sitting on a shelf, a cute and adorable kitten, a close-up portrait of a black and white cat: ![https://picsum.photos/600](https://picsum.photos/600)\n![https://picsum.photos/600](https://picsum.photos/600)`;
-      console.log("Answer:", answer);
+      const { content } = await this.chatService.chat({ text: query });
+      this.logger.log('Answer:', content);
       return {
-        answer: answer,
-        query: query || null
+        answer: content,
+        query: query || null,
       };
     }
     return {
-      query: query || null
+      query: query || null,
     };
   }
 }
