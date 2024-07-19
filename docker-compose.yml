@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: album
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./sql/project.sql:/docker-entrypoint-initdb.d/init.sql
+      - /tmp/postgres/data:/var/lib/postgresql/data
+  chat-album:
+    depends_on:
+      - postgres
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    tty: true
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.prod
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      - ./images:/home/images
