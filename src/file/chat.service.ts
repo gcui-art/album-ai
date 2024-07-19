@@ -15,14 +15,16 @@ export class ChatService {
 
     const response = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
-      max_tokens: 300,
+      max_tokens: 1024,
       temperature: 0.5,
       messages: [
         {
           role: 'user',
-          content: `The user input information is "${input.text}", and the result of vector library retrieval is: 
-                    ${JSON.stringify({ results, urls })}, fId is the unique identification of the picture. 
-                    Give a answer, do not include any relevant words about the process, and attach a link to the corresponding image according to the fId`,
+          content: `You are an artificial intelligence image album assistant, and your goal is to respond to user requests by combining relevant image data. 
+The user request is:  <request>${input.text}</request>,
+and the associated images are: <images>${JSON.stringify({ results, urls })}</images>.
+'fId' is the unique identification of the image.
+You need to return a friendly response in Markdown format and showcase the related images(use markdown image tag).`
         },
       ],
     });
