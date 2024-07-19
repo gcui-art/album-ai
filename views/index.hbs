@@ -1,10 +1,166 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <title>App</title>
-</head>
-<body>
-{{ message }}
-</body>
+<html class='dark'>
+  <head>
+    <meta charset='utf-8' />
+    <title>Album AI</title>
+    <meta
+      name='description'
+      content='AI-First Album: Auto generate image metadata and chat with the album. RAG + Album.'
+    />
+    <script
+      src='https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,container-queries'
+    ></script>
+    <script src='https://cdn.jsdelivr.net/npm/marked/marked.min.js'></script>
+    <script>
+      tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#3b82f6', } } } }
+    </script>
+    <style type='text/tailwindcss'>
+      @layer utilities { .prose a { text-decoration: none; } .prose a:hover {
+      text-decoration: none; } }
+    </style>
+  </head>
+  <body class='dark:bg-zinc-900'>
+    <div class='container mx-auto mb-10 px-4 prose dark:prose-invert'>
+      {{#if query}}
+        <!-- Search results page -->
+        <header class='py-4 w-full '>
+          <div class='flex items-center justify-between gap-4'>
+            <h1 class='my-0 py-0 mr-12'>
+              <a href='/' class='text-primary font-bold text-xl my-0'>✨ Album
+                AI</a>
+            </h1>
+            <form action='/' method='get' class='flex my-0 grow'>
+              <input
+                type='text'
+                name='query'
+                value='{{query}}'
+                placeholder='Ask Anything...'
+                class='grow px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary dark:bg-zinc-800 dark:border-zinc-700'
+              />
+              <button
+                type='submit'
+                class='px-4 py-2 bg-primary text-white rounded-r-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-zinc-900'
+              >搜索</button>
+            </form>
+          </div>
+        </header>
+        <div class="container mx-auto bg-zinc-800/60 rounded-xl px-14 py-10 shadow-md mb-10 min-h-96 prose 
+        prose-invert prose-img:rounded-xl prose-img:max-h-[500px] prose-img:mx-auto
+        ">
+          <h2 class="text-2xl font-bold">
+            Answer:
+          </h2>
+          <p class="border-b border-zinc-200/10"></p>
+          <div
+            class=''
+            id='gallery'
+          >
+          <!-- Gallery images will be dynamically inserted here -->
+          </div>  
+        </div>
+      {{else}}
+        <!-- Initial page -->
+        <div class='flex flex-col items-center justify-center min-h-screen'>
+          <h1 class='text-7xl mb-0 text-primary select-none'>Album AI</h1>
+          <h4 class='mb-8 text-gray-100/80'>AI-First Album, Chat with the your
+            Album.</h4>
+          <form action='/' method='get' class='w-full max-w-3xl'>
+            <div class='flex'>
+              <input
+                type='text'
+                name='query'
+                placeholder='Ask Anything...'
+                value='{{query}}'
+                class='w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-primary dark:bg-zinc-800 dark:border-zinc-700'
+              />
+              <button
+                type='submit'
+                class='px-6 py-2 bg-primary/60 text-white rounded-r-md hover:bg-blue-600 focus:outline-none focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-zinc-900'
+              >Ask</button>
+            </div>
+          </form>
+          <div
+            class='flex flex-wrap items-center justify-center gap-3 max-w-3xl mt-8'
+          >
+            <a
+              href='/?query=cat'
+              class='text-primary bg-primary/10 hover:bg-primary/30 px-4 py-1 rounded-xl whitespace-nowrap'
+            >cat</a>
+            <a
+              href='/?query=Let me bid farewell to hunger'
+              class='text-primary bg-primary/10 hover:bg-primary/30 px-4 py-1 rounded-xl whitespace-nowrap'
+            >Let me bid farewell to hunger</a>
+            <a
+              href='/?query=cute animals'
+              class='text-primary bg-primary/10 hover:bg-primary/30 px-4 py-1 rounded-xl whitespace-nowrap'
+            >cute animals</a>
+            <a
+              href='/?query=Some means of transportation'
+              class='text-primary bg-primary/10 hover:bg-primary/30 px-4 py-1 rounded-xl whitespace-nowrap'
+            >Some means of transportation</a>
+            <a
+              href='/?query=I want to give a gift to my mom'
+              class='text-primary bg-primary/10 hover:bg-primary/30 px-4 py-1 rounded-xl whitespace-nowrap'
+            >I want to give a gift to my mom</a>
+            <a
+              href='/?query=让我感到温暖的照片'
+              class='text-primary bg-primary/10 hover:bg-primary/30 px-4 py-1 rounded-xl whitespace-nowrap'
+            >让我感到温暖的照片</a>
+            <a
+              href='/?query=元気が出る飲み物をください。'
+              class='text-primary bg-primary/10 hover:bg-primary/30 px-4 py-1 rounded-xl whitespace-nowrap'
+            >元気が出る飲み物をください。y</a>
+            <a
+              href='/?query=Plantas que crecen en el agua'
+              class='text-primary bg-primary/10 hover:bg-primary/30 px-4 py-1 rounded-xl whitespace-nowrap'
+            >Plantas que crecen en el agua</a>
+          </div>
+          <div class='mt-8 text-center'>
+            <a
+              href='https://github.com/gcui-art/album-ai'
+              target='_blank'
+              rel='noopener noreferrer'
+              class='inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary/50 to-indigo-800 text-white rounded-full hover:from-primary/70 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1'
+            >
+              <svg
+                class='w-6 h-6 mr-3'
+                fill='currentColor'
+                viewBox='0 0 24 24'
+                aria-hidden='true'
+              >
+                <path
+                  fill-rule='evenodd'
+                  d='M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z'
+                  clip-rule='evenodd'
+                />
+              </svg>
+              Follow us on GitHub
+            </a>
+          </div>
+        </div>
+      {{/if}}
+    </div>
+<script>
+  console.log('Gallery script is running');
+
+  function renderMarkdownToGallery(message) {
+    const gallery = document.getElementById('gallery');
+    if (!gallery) {
+      console.error('Gallery element not found');
+      return;
+    }
+    console.log('Rendering markdown to gallery');
+    // Convert Markdown to HTML using marked
+    const htmlContent = marked.parse(message);
+    // Set the HTML content to the gallery element
+    gallery.innerHTML = htmlContent;
+  }
+  // Use DOMContentLoaded event
+  document.addEventListener('DOMContentLoaded', () => {
+    // Assume message is injected through server-side rendering
+    const message = `{{{ message }}}`;
+    renderMarkdownToGallery(message);
+  });
+</script>
+  </body>
 </html>
