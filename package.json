@@ -1,5 +1,5 @@
 {
-  "name": "chat-album",
+  "name": "album-ai",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -20,7 +20,6 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.24.3",
     "@langchain/community": "^0.2.17",
     "@langchain/openai": "^0.2.1",
     "@nestjs/common": "^10.0.0",

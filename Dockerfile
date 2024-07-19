@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:18.20.4-slim
 
 RUN mkdir -p /app
 

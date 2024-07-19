@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { anthropicClient } from '../app.module';
+import { openai } from '../app.module';
 import * as sharp from 'sharp';
 
 @Injectable()
@@ -8,19 +8,17 @@ export class ExtractImageService {
     imageBase64: string,
     contentType: 'image/jpeg',
   ) {
-    return anthropicClient.messages.create({
-      model: 'claude-3-haiku-20240307',
-      max_tokens: 1024,
+    return openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      max_tokens: 300,
       messages: [
         {
           role: 'user',
           content: [
             {
-              type: 'image',
-              source: {
-                type: 'base64',
-                media_type: contentType,
-                data: imageBase64,
+              type: 'image_url',
+              image_url: {
+                url: `data:${contentType};base64,${imageBase64}`,
               },
             },
             {

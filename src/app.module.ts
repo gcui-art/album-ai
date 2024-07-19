@@ -9,7 +9,6 @@ import OpenAI from 'openai';
 import * as process from 'node:process';
 import { EmbeddingService } from './remote/embedding.service';
 import { HttpsProxyAgent } from 'https-proxy-agent';
-import Anthropic from '@anthropic-ai/sdk';
 import { ExtractImageService } from './remote/extract-image.service';
 import { PgVectorStoreService } from './remote/pg-vector-store.service';
 import { PageController } from './page/page.controller';
@@ -33,10 +32,5 @@ export class AppModule {}
 
 export const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
-});
-
-export const anthropicClient = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });

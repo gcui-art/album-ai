@@ -10,7 +10,7 @@ services:
     volumes:
       - ./sql/project.sql:/docker-entrypoint-initdb.d/init.sql
       - /tmp/postgres/data:/var/lib/postgresql/data
-  chat-album:
+  album-ai:
     depends_on:
       - postgres
     build:

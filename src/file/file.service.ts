@@ -10,7 +10,6 @@ import crc32 from 'crc/crc32';
 import * as mime from 'mime-types';
 import { FileStatus } from '../common';
 import { ExtractImageService } from '../remote/extract-image.service';
-import { TextBlock } from '@anthropic-ai/sdk/src/resources/messages';
 import { PgVectorStoreService } from '../remote/pg-vector-store.service';
 
 @Injectable()
@@ -117,7 +116,8 @@ export class FileService {
             base64,
             'image/jpeg',
           );
-          const content = (message.content[0] as TextBlock).text;
+
+          const content = message.choices[0].message.content;
 
           await this.fileRepository.update(
             {
