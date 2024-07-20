@@ -8,7 +8,7 @@
 <p align="center">
   <a target="_blank" href="./README.md">English</a> 
   | <a target="_blank" href="./README_CN.md">简体中文</a> 
-  | <a target="_blank" href="https://album.gcui.ai">Demo</a>
+  <!-- | <a target="_blank" href="https://album.gcui.ai">Demo</a> -->
   
 </p>
 
@@ -16,20 +16,22 @@
 
 ## 简介
 
-Album AI 是一个试验项目，使用刚刚发布的GPT4-o-mini作为视觉模型，自动识别出相册中图像文件的元信息，然后借助RAG技术，实现了与相册对话的能力。
+Album AI 是一个试验项目，使用刚刚发布的gpt-4o-mini作为视觉模型，自动识别出相册中图像文件的元信息，然后借助RAG技术，实现了与相册对话的能力。
 
 可以当做传统的相册使用，也可以作为一个图像知识库辅助LLM生成内容。
 
 ## 故事
 
-作为一个摄影爱好者，面对几T的照片，我常常感到无从下手，现有的所有的相册管理软件都需要我付出额外的精力去维护它。Haiku和刚刚发布的GPT4-o-mini，让我看到了希望。所以我准备马上动手实现它，第一个版本我和我的伙伴，只用了不到24小时实现。
+作为一个摄影爱好者，面对几T的照片，我常常感到无从下手，现有的所有的相册管理软件都需要我付出额外的精力去维护它。Haiku和刚刚发布的gpt-4o-mini，让我看到了希望。所以我准备马上动手实现它，第一个版本我和我的伙伴，只用了不到24小时实现。
 
 希望你们也喜欢它。我愿意听到你们任何赞美和反对。别忘了点个⭐️，或者分享让更多人知道。
 
 ## Demo
 
+即将到来。
+<!-- 
 我们部署了一个例子在Render上，你可以看到它运行起来的样子：
-[album.gcui.ai](https://album.gcui.ai)
+[album.gcui.ai](https://album.gcui.ai) -->
 
 ## Features
 
@@ -107,8 +109,8 @@ Apache 2.0 License
 ## 相关链接
 
 - 项目仓库: [github.com/gcui-art/album-ai](https://github.com/gcui-art/album-ai)
-- Album AI 主页: [album.gcui.ai](https://album.gcui.ai)
-- 演示站点: [album.gcui.ai](https://album.gcui.ai)
+<!-- - Album AI 主页: [album.gcui.ai](https://album.gcui.ai)
+- 演示站点: [album.gcui.ai](https://album.gcui.ai) -->
 - 作者：[@Kane](https://x.com/BlueeonY) 
 
 ## 声明

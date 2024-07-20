@@ -8,7 +8,7 @@
 <p align="center">
   <a target="_blank" href="./README.md">English</a> 
   | <a target="_blank" href="./README_CN.md">简体中文</a> 
-  | <a target="_blank" href="https://album.gcui.ai">Demo</a>
+  <!-- | <a target="_blank" href="https://album.gcui.ai">Demo</a> -->
   
 </p>
 
@@ -17,20 +17,20 @@ https://github.com/user-attachments/assets/5cc72436-2749-479f-a1bf-06e0d06ce1e3
 
 ## Introduction
 
-Album AI is an experimental project that uses the recently released GPT4-o-mini as a visual model to automatically identify metadata from image files in the album. It then leverages RAG technology to enable conversations with the album.
+Album AI is an experimental project that uses the recently released gpt-4o-mini as a visual model to automatically identify metadata from image files in the album. It then leverages RAG technology to enable conversations with the album.
 
 It can be used as a traditional photo album or as an image knowledge base to assist LLM in content generation.
 
 ## Story
 
-As a photography enthusiast facing terabytes of photos, I often felt overwhelmed. All existing photo management software required extra effort to maintain. Haiku and the newly released GPT4-o-mini gave me hope. So I decided to implement it immediately. My partner and I created the first version in less than 24 hours.
+As a photography enthusiast facing terabytes of photos, I often felt overwhelmed. All existing photo management software required extra effort to maintain. Haiku and the newly released gpt-4o-mini gave me hope. So I decided to implement it immediately. My partner and I created the first version in less than 24 hours.
 
 We hope you'll like it too. We welcome any praise or criticism. Don't forget to give us a ⭐️ or share to let more people know about it.
 
 ## Demo
-
-We deployed an example on Render, you can see how it works:
-[album.gcui.ai](https://album.gcui.ai)
+Coming soon.
+<!-- We deployed an example on Render, you can see how it works:
+[album.gcui.ai](https://album.gcui.ai) -->
 
 ## Features
 
@@ -108,8 +108,8 @@ We use Github's Issue to manage these feedbacks, you can submit one. We will oft
 ## Related links
 
 - Project repository: [github.com/gcui-art/album-ai](https://github.com/gcui-art/album-ai)
-- Album AI homepage: [album.gcui.ai](https://album.gcui.ai)
-- Demo site: [album.gcui.ai](https://album.gcui.ai)
+<!-- - Album AI homepage: [album.gcui.ai](https://album.gcui.ai)
+- Demo site: [album.gcui.ai](https://album.gcui.ai) -->
 - Author: [@Kane](https://x.com/BlueeonY)
 
 ## Disclaimer
