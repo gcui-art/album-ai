@@ -1,73 +1,119 @@
+<div align="center">
+  <h1 align="center">
+      Album AI
+  </h1>
+  <p>AI-First Album, allowing direct natural language chat with your album.</p>
+  <p>👉 We update frequently, feel free to star us.</p>
+</div>
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a target="_blank" href="./README.md">English</a> 
+  | <a target="_blank" href="./README_CN.md">简体中文</a> 
+  | <a target="_blank" href="https://album.gcui.ai">Demo</a>
+  
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<video width="100%" controls>
+  <source src="https://github.com/gcui-art/album-ai/blob/main/public/album-ai-demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Introduction
 
-## Description
+Album AI is an experimental project that uses the recently released GPT4-o-mini as a visual model to automatically identify metadata from image files in the album. It then leverages RAG technology to enable conversations with the album.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+It can be used as a traditional photo album or as an image knowledge base to assist LLM in content generation.
 
-## Installation
+## Story
 
-```bash
-$ npm install
-```
+As a photography enthusiast facing terabytes of photos, I often felt overwhelmed. All existing photo management software required extra effort to maintain. Haiku and the newly released GPT4-o-mini gave me hope. So I decided to implement it immediately. My partner and I created the first version in less than 24 hours.
 
-## Running the app
+We hope you'll like it too. We welcome any praise or criticism. Don't forget to give us a ⭐️ or share to let more people know about it.
 
-```bash
-# development
-$ npm run start
+## Demo
 
-# watch mode
-$ npm run start:dev
+We deployed an example on Render, you can see how it works:
+[album.gcui.ai](https://album.gcui.ai)
 
-# production mode
-$ npm run start:prod
-```
+## Features
 
-## Test
+- Automatically discover images in the album, using a PgSQL database for storage.
+- Utilize GPT-4-o-mini to automatically generate metadata for images.
+- Use OpenAI's Embedding API for metadata vectorization.
+- Provide two APIs:
+  - Search: A traditional Search API that takes a query and returns the most relevant images.
+  - Chat: A RAG API that takes a query, retrieves images, and generates responses.
+- One-click deployment to platforms like Render that support Docker container deployment.
+- A permissive open-source license allows for integration and modification (please contact us for commercial use).
+
+## How to start using?
+
+Recommended to run locally, if you want to run on a server, please deploy yourself, and we will improve this part of the guide.
+
+### 1. Clone the project
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+git clone git@github.com:gcui-art/album-ai.git
+cd album-ai
 ```
 
-## Support
+### 2. Modify the .env
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+cp .env.prod.example .env.prod
+```
 
-## Stay in touch
+Open `.env.prod` with your favorite editor, modify the configuration:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+HOST_NAME= # Your local IP address, usually 192.168.x.x:8080
+PROXY_URL= # Your local proxy IP address, usually 192.168.x.x:7890, required when accessing OpenAI API directly is not available
+```
+
+### 3. Build and run the project
+
+```bash
+chmod a+x ./build.sh
+./build.sh
+```
+
+### 4. Enjoy!
+
+Open the browser and visit `http://localhost:8080` to see the demo.
+
+### 5. Add new photos
+
+Open the `images` directory in the project, add new photos to the `images` directory, and the background will automatically recognize and vectorize metadata. After that, you can use it in the demo through search and chat.
+
+## API Reference
+
+Album AI currently implements the following APIs:
+
+- `get` /api/v1/file/search: Search for images
+- `post`/api/v1/chat: Chat with images
+
+## Contribution
+
+There are four ways to support this project:
+
+1. Fork the project and submit a PR: We welcome any PR to make Album AI better.
+2. Submit an Issue: We welcome any reasonable suggestions or bug reports.
+3. Recommend: Recommend the project to others; click Star; place a link to the project after using it.
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+Apache 2.0 License
+
+## You have a question/suggestion/issue/Bug?
+
+We use Github's Issue to manage these feedbacks, you can submit one. We will often deal with them.
+
+## Related links
+
+- Project repository: [github.com/gcui-art/album-ai](https://github.com/gcui-art/album-ai)
+- Album AI homepage: [album.gcui.ai](https://album.gcui.ai)
+- Demo site: [album.gcui.ai](https://album.gcui.ai)
+- Author: [@Kane](https://x.com/BlueeonY)
+
+## Disclaimer
+
+If you want to use it for commercial purposes, please contact us.
