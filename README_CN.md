@@ -12,7 +12,7 @@
   
 </p>
 
-  https://github.com/gcui-art/album-ai/assets/album-ai-demo.mp4
+  https://github.com/user-attachments/assets/5cc72436-2749-479f-a1bf-06e0d06ce1e3
 
 ## 简介
 
