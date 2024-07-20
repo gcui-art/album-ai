@@ -33,7 +33,15 @@ export class ExtractImageService {
 
   public async compressImageToBuffer(inputImagePath: string, quality: number) {
     const image = sharp(inputImagePath);
-    return await image.jpeg({ quality }).toBuffer();
+    return await image
+      .resize({
+        width: 512,
+        height: 512,
+        fit: sharp.fit.inside,
+        withoutEnlargement: true,
+      })
+      .jpeg({ quality })
+      .toBuffer();
   }
 
   public async imageToBase64(imageBuffer: Buffer) {
