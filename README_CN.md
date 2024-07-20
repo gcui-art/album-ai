@@ -12,10 +12,7 @@
   
 </p>
 
-<video width="100%" controls>
-  <source src="https://github.com/gcui-art/album-ai/blob/main/public/album-ai-demo.mp4" type="video/mp4">
-  您的浏览器不支持 video 标签。
-</video>
+https://github.com/gcui-art/album-ai/blob/main/public/album-ai-demo.mp4
 
 ## 简介
 
