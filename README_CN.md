@@ -2,8 +2,8 @@
   <h1 align="center"">
       Album AI
   </h1>
-  <p>用生成式AI重新设计的相册，直接用自然语言和你的相册对话。</p>
-  <p>👉 我们更新很快，欢迎 star。</p>
+  <p>基于生成式AI重新设计的图库，用自然语言直接和你的图库对话。</p>
+  <p>👉 更新很快，欢迎 star。</p>
 </div>
 <p align="center">
   <a target="_blank" href="./README.md">English</a> 
@@ -12,7 +12,7 @@
   
 </p>
 
-https://github.com/gcui-art/album-ai/blob/main/public/album-ai-demo.mp4
+  https://github.com/gcui-art/album-ai/assets/album-ai-demo.mp4
 
 ## 简介
 
