@@ -68,6 +68,12 @@ HOST_NAME= # 你本地的IP地址，一般192.168.x.x:8080
 PROXY_URL= # 你本地的代理IP地址，一般 192.168.x.x:7890，无法直接访问OpenAI API时需要
 ```
 
+在 docker-compose.yml 里配置上 OPENAI_API_KEY：
+
+```bash
+OPENAI_API_KEY= # 你的 openai api 秘钥
+```
+
 ### 3. Build 并启动项目
 
 ```bash
