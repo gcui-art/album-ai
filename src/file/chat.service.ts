@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { FileService } from './file.service';
-import { openai } from '../app.module';
+import { anthropicClient, openai } from '../app.module';
+import Anthropic from '@anthropic-ai/sdk';
+import TextBlock = Anthropic.TextBlock;
+import { replacePlaceholders } from '../common';
 
 @Injectable()
 export class ChatService {
@@ -12,23 +15,42 @@ export class ChatService {
       return { code: 404, msg: 'Not found' };
     }
 
-    const response = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      max_tokens: 1024,
-      temperature: 0.5,
-      messages: [
-        {
-          role: 'user',
-          content: `You are an artificial intelligence image album assistant, and your goal is to respond to user requests by combining relevant image data. 
-The user request is:  <request>${input.text}</request>,
-and the associated images are: <images>${JSON.stringify({ results, urls })}</images>.
-'fId' is the unique identification of the image.
-You need to return a friendly response in Markdown format and showcase the related images(use markdown image tag).`,
-        },
-      ],
-    });
-
-    const content = response.choices[0].message.content;
+    let content;
+    if (process.env.CHAT_PROVIDER == 'openai') {
+      const response = await openai.chat.completions.create({
+        model: process.env.CHAT_PROVIDER_MODEL,
+        max_tokens: 1024,
+        temperature: 0.5,
+        messages: [
+          {
+            role: 'user',
+            content: replacePlaceholders(process.env.CHAT_PROVIDER_PROMPT, {
+              inputText: input.text,
+              imageData: JSON.stringify({ results, urls }),
+            }),
+          },
+        ],
+      });
+      content = response.choices[0].message.content;
+    } else if (process.env.CHAT_PROVIDER == 'anthropic') {
+      const response = await anthropicClient.messages.create({
+        model: process.env.CHAT_PROVIDER_MODEL,
+        max_tokens: 1024,
+        temperature: 0.5,
+        messages: [
+          {
+            role: 'user',
+            content: replacePlaceholders(process.env.CHAT_PROVIDER_PROMPT, {
+              inputText: input.text,
+              imageData: JSON.stringify({ results, urls }),
+            }),
+          },
+        ],
+      });
+      content = (response.content[0] as TextBlock).text;
+    } else {
+      throw new Error(`no support. provider=${process.env.CHAT_PROVIDER}`);
+    }
     return {
       content,
     };

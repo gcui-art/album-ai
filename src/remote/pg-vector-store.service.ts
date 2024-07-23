@@ -13,17 +13,22 @@ export class PgVectorStoreService implements OnModuleInit {
   }
 
   public async init() {
-    this.pgvectorStore = await PGVectorStore.initialize(
-      new OpenAIEmbeddings({
-        apiKey: process.env.OPENAI_API_KEY,
-        configuration: {
-          httpAgent: process.env.PROXY_URL
-            ? new HttpsProxyAgent(process.env.PROXY_URL)
-            : undefined,
-        },
-      }),
-      configService.getPGvectorConfig(),
-    );
+    if (process.env.EMBEDDING_PROVIDER == 'openai') {
+      this.pgvectorStore = await PGVectorStore.initialize(
+        new OpenAIEmbeddings({
+          apiKey: process.env.OPENAI_API_KEY,
+          model: process.env.EMBEDDING_PROVIDER_MODEL,
+          configuration: {
+            httpAgent: process.env.PROXY_URL
+              ? new HttpsProxyAgent(process.env.PROXY_URL)
+              : undefined,
+          },
+        }),
+        configService.getPGvectorConfig(),
+      );
+    } else {
+      throw new Error(`no support. provider=${process.env.EMBEDDING_PROVIDER}`);
+    }
   }
 
   public async addDoc(pageContent: string, metadata: Record<string, any>) {

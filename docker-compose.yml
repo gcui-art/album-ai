@@ -24,5 +24,6 @@ services:
       - .env.prod
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     volumes:
       - ./images:/home/images

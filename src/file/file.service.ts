@@ -112,12 +112,10 @@ export class FileService {
             80,
           );
           const base64 = await this.extractImageService.imageToBase64(imageBuf);
-          const message = await this.extractImageService.extractImageInfo(
+          const content = await this.extractImageService.extractImageInfo(
             base64,
             'image/jpeg',
           );
-
-          const content = message.choices[0].message.content;
 
           await this.fileRepository.update(
             {

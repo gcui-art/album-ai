@@ -13,6 +13,7 @@ import { ExtractImageService } from './remote/extract-image.service';
 import { PgVectorStoreService } from './remote/pg-vector-store.service';
 import { PageController } from './page/page.controller';
 import { ChatService } from './file/chat.service';
+import Anthropic from '@anthropic-ai/sdk';
 
 @Module({
   controllers: [PageController],
@@ -34,6 +35,13 @@ export class AppModule {}
 
 export const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
+  httpAgent: process.env.PROXY_URL
+    ? new HttpsProxyAgent(process.env.PROXY_URL)
+    : undefined,
+});
+
+export const anthropicClient = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
   httpAgent: process.env.PROXY_URL
     ? new HttpsProxyAgent(process.env.PROXY_URL)
     : undefined,

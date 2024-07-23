@@ -3,3 +3,10 @@ export enum FileStatus {
   Extract = 'Extract',
   Embedding = 'Embedding',
 }
+
+export const replacePlaceholders = (
+  template: string,
+  replacements: Record<string, string>,
+) => {
+  return template.replace(/\${(.*?)}/g, (_, g) => replacements[g] || '');
+};
