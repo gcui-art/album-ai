@@ -34,5 +34,7 @@ export class AppModule {}
 
 export const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
+  httpAgent: process.env.PROXY_URL
+    ? new HttpsProxyAgent(process.env.PROXY_URL)
+    : undefined,
 });

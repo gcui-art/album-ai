@@ -17,7 +17,9 @@ export class PgVectorStoreService implements OnModuleInit {
       new OpenAIEmbeddings({
         apiKey: process.env.OPENAI_API_KEY,
         configuration: {
-          httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
+          httpAgent: process.env.PROXY_URL
+            ? new HttpsProxyAgent(process.env.PROXY_URL)
+            : undefined,
         },
       }),
       configService.getPGvectorConfig(),
