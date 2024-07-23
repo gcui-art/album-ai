@@ -15,6 +15,13 @@ export class ChatService {
       return { code: 404, msg: 'Not found' };
     }
 
+    console.log(
+      replacePlaceholders(
+        process.env.CHAT_PROVIDER_PROMPT,
+        input.text,
+        JSON.stringify({ results, urls }),
+      ),
+    );
     let content;
     if (process.env.CHAT_PROVIDER == 'openai') {
       const response = await openai.chat.completions.create({
@@ -24,10 +31,11 @@ export class ChatService {
         messages: [
           {
             role: 'user',
-            content: replacePlaceholders(process.env.CHAT_PROVIDER_PROMPT, {
-              inputText: input.text,
-              imageData: JSON.stringify({ results, urls }),
-            }),
+            content: replacePlaceholders(
+              process.env.CHAT_PROVIDER_PROMPT,
+              input.text,
+              JSON.stringify({ results, urls }),
+            ),
           },
         ],
       });
@@ -40,10 +48,11 @@ export class ChatService {
         messages: [
           {
             role: 'user',
-            content: replacePlaceholders(process.env.CHAT_PROVIDER_PROMPT, {
-              inputText: input.text,
-              imageData: JSON.stringify({ results, urls }),
-            }),
+            content: replacePlaceholders(
+              process.env.CHAT_PROVIDER_PROMPT,
+              input.text,
+              JSON.stringify({ results, urls }),
+            ),
           },
         ],
       });

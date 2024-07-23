@@ -11,6 +11,9 @@
   <!-- | <a target="_blank" href="https://album.gcui.ai">Demo</a> -->
   
 </p>
+<p align="center">
+<a href="https://www.producthunt.com/posts/album-ai-ai-first-album?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-album&#0045;ai&#0045;ai&#0045;first&#0045;album" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=473306&theme=light" alt="Album&#0032;AI&#0032;&#0045;&#0032;AI&#0045;First&#0032;Album - Chat&#0032;with&#0032;your&#0032;gallery&#0032;using&#0032;plain&#0032;language&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+</p>
 
 https://github.com/user-attachments/assets/5cc72436-2749-479f-a1bf-06e0d06ce1e3
 
