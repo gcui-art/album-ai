@@ -125,3 +125,13 @@ We use Github's Issue to manage these feedbacks, you can submit one. We will oft
 ## Disclaimer
 
 If you want to use it for commercial purposes, please contact us.
+
+## Star History
+
+<a href="https://star-history.com/#gcui-art/album-ai&Timeline">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=gcui-art/album-ai&type=Timeline&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=gcui-art/album-ai&type=Timeline" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=gcui-art/album-ai&type=Timeline" />
+ </picture>
+</a>
