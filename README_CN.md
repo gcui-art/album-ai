@@ -125,3 +125,13 @@ Apache 2.0 License
 ## 声明
 
 如果要商业使用，请与我们取得联系。
+
+## Star History
+
+<a href="https://star-history.com/#gcui-art/album-ai&Timeline">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=gcui-art/album-ai&type=Timeline&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=gcui-art/album-ai&type=Timeline" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=gcui-art/album-ai&type=Timeline" />
+ </picture>
+</a>
