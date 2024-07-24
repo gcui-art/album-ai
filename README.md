@@ -8,7 +8,7 @@
 <p align="center">
   <a target="_blank" href="./README.md">English</a> 
   | <a target="_blank" href="./README_CN.md">简体中文</a> 
-  <!-- | <a target="_blank" href="https://album.gcui.ai">Demo</a> -->
+  | <a target="_blank" href="https://album.gcui.ai">Demo</a>
   
 </p>
 <p align="center">
@@ -30,10 +30,8 @@ As a photography enthusiast facing terabytes of photos, I often felt overwhelmed
 
 We hope you'll like it too. We welcome any praise or criticism. Don't forget to give us a ⭐️ or share to let more people know about it.
 
-## Demo
-Coming soon.
-<!-- We deployed an example on Render, you can see how it works:
-[album.gcui.ai](https://album.gcui.ai) -->
+## Live Demo
+[album.gcui.ai](https://album.gcui.ai) 
 
 ## Features
 
@@ -118,8 +116,8 @@ We use Github's Issue to manage these feedbacks, you can submit one. We will oft
 ## Related links
 
 - Project repository: [github.com/gcui-art/album-ai](https://github.com/gcui-art/album-ai)
-<!-- - Album AI homepage: [album.gcui.ai](https://album.gcui.ai)
-- Demo site: [album.gcui.ai](https://album.gcui.ai) -->
+- Album AI homepage: [album.gcui.ai](https://album.gcui.ai)
+- Live Demo: [album.gcui.ai](https://album.gcui.ai)
 - Author: [@Kane](https://x.com/BlueeonY)
 
 ## Disclaimer
