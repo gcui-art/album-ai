@@ -8,7 +8,7 @@
 <p align="center">
   <a target="_blank" href="./README.md">English</a> 
   | <a target="_blank" href="./README_CN.md">简体中文</a> 
-  | <a target="_blank" href="https://album.gcui.ai">Demo</a>
+  | <a target="_blank" href="http://album.gcui.ai">Demo</a>
   
 </p>
 <p align="center">
@@ -31,7 +31,7 @@ Album AI 是一个试验项目，使用刚刚发布的gpt-4o-mini作为视觉模
 
 ## 在线 Demo
 
-[album.gcui.ai](https://album.gcui.ai) 
+[album.gcui.ai](http://album.gcui.ai) 
 
 ## Features
 
@@ -115,8 +115,8 @@ Apache 2.0 License
 ## 相关链接
 
 - 项目仓库: [github.com/gcui-art/album-ai](https://github.com/gcui-art/album-ai)
-- Album AI 主页: [album.gcui.ai](https://album.gcui.ai)
-- 演示站点: [album.gcui.ai](https://album.gcui.ai) 
+- Album AI 主页: [album.gcui.ai](http://album.gcui.ai)
+- 演示站点: [album.gcui.ai](http://album.gcui.ai) 
 - 作者：[@Kane](https://x.com/BlueeonY) 
 
 ## 声明
