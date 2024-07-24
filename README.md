@@ -2,7 +2,7 @@
   <h1 align="center">
       Album AI
   </h1>
-  <p>AI-First Album, allowing direct natural language chat with your album.</p>
+  <p>AI-First Album, Chat with your gallery/album using plain language!</p>
   <p>👉 We update frequently, feel free to star us.</p>
 </div>
 <p align="center">
