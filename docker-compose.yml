@@ -22,8 +22,5 @@ services:
       - "8080:8080"
     env_file:
       - .env.prod
-    environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     volumes:
       - ./images:/home/images

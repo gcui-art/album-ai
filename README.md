@@ -66,12 +66,7 @@ Open `.env.prod` with your favorite editor, modify the configuration:
 ```bash
 HOST_NAME= # Your local IP address, usually 192.168.x.x:8080
 PROXY_URL= # (Optional) Your local proxy IP address, usually 192.168.x.x:7890, required when accessing OpenAI API directly is not available
-```
 
-
-Configure OPENAI_API_KEY and ANTHROPIC_API_KEY in docker-compose.yml:
-
-```bash
 OPENAI_API_KEY= # Your openai api key
 ANTHROPIC_API_KEY= # Your Anthropic api key 
 ```
