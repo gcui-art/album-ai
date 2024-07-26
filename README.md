@@ -20,7 +20,7 @@ https://github.com/user-attachments/assets/5cc72436-2749-479f-a1bf-06e0d06ce1e3
 
 ## Introduction
 
-Album AI is an experimental project that uses the recently released gpt-4o-mini as a visual model to automatically identify metadata from image files in the album. It then leverages RAG technology to enable conversations with the album.
+Album AI is an experimental project that uses the recently released gpt-4o-mini and Haiku as a visual model to automatically identify metadata from image files in the album. It then leverages RAG technology to enable conversations with the album.
 
 It can be used as a traditional photo album or as an image knowledge base to assist LLM in content generation.
 
