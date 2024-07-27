@@ -182,12 +182,17 @@ export class FileService {
     }
   }
 
-  public async searchDetail(query: string) {
-    const results = await this.pgVectorStoreService.search(query);
+  public async searchDetail(query: string, score?: number, limit?: number) {
+    let results = await this.pgVectorStoreService.search(
+      query,
+      limit ?? parseInt(process.env.MAX_SEARCH_LIMIT),
+    );
     if (!results || results.length == 0) {
       return;
     }
-    const fIds = results.map((item) => item.metadata.fId);
+    score = score ?? parseFloat(process.env.SIMILARITY_SCORE);
+    results = results.filter((item) => item[1] < score);
+    const fIds = results.map((item) => item[0].metadata.fId);
     const fileAlbums = await this.fileRepository.find({
       where: {
         fId: In(fIds),

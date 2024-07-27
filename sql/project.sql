@@ -25,6 +25,6 @@ create table file_vector_index
     id        bigserial primary key,
     text      varchar not null,
     metadata  jsonb,
-    embedding vector(1536)
+    embedding vector(3072)
 );
 

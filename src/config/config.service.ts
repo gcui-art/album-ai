@@ -39,7 +39,7 @@ export class ConfigService {
   }
 
   public getAlbumDir() {
-    return process.env.ALBUM_PATH || './';
+    return process.env.ALBUM_PATH || '/home/images';
   }
 
   public getHostName() {

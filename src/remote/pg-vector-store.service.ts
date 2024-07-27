@@ -3,6 +3,7 @@ import { configService } from '../config/config.service';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 import { PGVectorStore } from '@langchain/community/vectorstores/pgvector';
+import { similaritySearch } from '@langchain/community/dist/vectorstores/tests/convex/convex/lib';
 
 @Injectable()
 export class PgVectorStoreService implements OnModuleInit {
@@ -46,7 +47,7 @@ export class PgVectorStoreService implements OnModuleInit {
     await this.pgvectorStore.addDocuments(docs);
   }
 
-  public async search(query: string) {
-    return this.pgvectorStore.similaritySearch(query);
+  public async search(query: string, limit: number) {
+    return this.pgvectorStore.similaritySearchWithScore(query, limit);
   }
 }
