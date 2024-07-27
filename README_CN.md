@@ -9,6 +9,7 @@
   <a target="_blank" href="./README.md">English</a> 
   | <a target="_blank" href="./README_CN.md">简体中文</a> 
   | <a target="_blank" href="http://album.gcui.ai">Demo</a>
+  | <a target="_blank" href="https://discord.gg/CGvNmywF">Discord</a>
   
 </p>
 <p align="center">
