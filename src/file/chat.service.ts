@@ -10,7 +10,11 @@ export class ChatService {
   constructor(private readonly fileService: FileService) {}
 
   public async chat(input: { text: string }) {
-    const { results, urls } = await this.fileService.searchDetail(input.text);
+    const res = await this.fileService.searchDetail(input.text);
+    if (!res) {
+      return { code: 404, msg: 'Not found' };
+    }
+    const { results, urls } = res;
     if (!results || results.length == 0) {
       return { code: 404, msg: 'Not found' };
     }
@@ -22,7 +26,7 @@ export class ChatService {
         JSON.stringify({ results, urls }),
       ),
     );
-    let content;
+    let content: string;
     if (process.env.CHAT_PROVIDER == 'openai') {
       const response = await openai.chat.completions.create({
         model: process.env.CHAT_PROVIDER_MODEL,
