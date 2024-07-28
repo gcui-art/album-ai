@@ -16,7 +16,10 @@ export class ChatService {
     }
     const { results, urls } = res;
     if (!results || results.length == 0) {
-      return { code: 404, msg: 'Not found' };
+
+      return {
+        content: 'No relevant images were found in your album. Please add images or modify the search query.',
+      };
     }
 
     console.log(
