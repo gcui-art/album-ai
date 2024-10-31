@@ -106,7 +106,7 @@ There are four ways to support this project:
 
 Apache 2.0 License
 
-## You have a question/suggestion/issue/Bug?
+## Do You have a question/suggestion/issue/Bug?
 
 We use Github's Issue to manage these feedbacks, you can submit one. We will often deal with them.
 
